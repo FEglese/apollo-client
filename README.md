@@ -31,7 +31,7 @@ If you don't have serve locally, run `npm i -g serve` then deploy with `serve -s
 
 > Any component tasks must also include tests
 
-- [ ] GraphQL / ApolloClient service for collecting data
+- [x] GraphQL / ApolloClient service for collecting data
 - [ ] Feed list component
 - [ ] Feed list item component
 - [ ] Search component
