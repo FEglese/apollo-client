@@ -1,9 +1,11 @@
+import LaunchList from "./components/launchList/LaunchList";
 import "./style/App.scss";
 
 function App() {
 	return (
 		<div className="App">
-			<p>Hello World</p>
+			<h1>🚀 SpaceX Launches 🚀</h1>
+			<LaunchList />
 		</div>
 	);
 }
