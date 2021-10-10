@@ -15,9 +15,7 @@ export interface LocationDropDownOptions {
 }
 
 export const useLocationDropdown = () => {
-	const { loading, data } = useQuery<LocationsResponse>(
-		GET_ALL_LOCATIONS_QUERY
-	);
+	const { data } = useQuery<LocationsResponse>(GET_ALL_LOCATIONS_QUERY);
 
 	/**
 	 * Checking if a duplicate key/val pair already exists in an array
@@ -48,5 +46,5 @@ export const useLocationDropdown = () => {
 	// Add an empty option at the top
 	locations.unshift({ key: "", val: "" });
 
-	return { locations, loading };
+	return { locations };
 };

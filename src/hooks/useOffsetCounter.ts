@@ -11,5 +11,9 @@ export const useOffsetCounter = (initialVal: number, pageLength: number) => {
 		setPageOffset((os) => os - pageLength);
 	}
 
-	return { pageOffset, incrementPage, decrementPage };
+	function resetPage() {
+		setPageOffset(initialVal);
+	}
+
+	return { pageOffset, incrementPage, decrementPage, resetPage };
 };

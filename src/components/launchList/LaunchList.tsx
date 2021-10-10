@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 
 // Models
 import { LaunchesData, LaunchData } from "../../models/LaunchData";
@@ -17,21 +18,27 @@ import { useOffsetCounter } from "../../hooks/useOffsetCounter";
 interface LaunchSearchVariables {
 	limit: number;
 	offset: number;
+	site_id: string;
 }
 
 const LaunchList = () => {
 	const PAGE_LENGTH = 10;
 
-	const { pageOffset, incrementPage, decrementPage } = useOffsetCounter(
-		0,
-		PAGE_LENGTH
-	);
+	// Hooks
+	const { pageOffset, incrementPage, decrementPage, resetPage } =
+		useOffsetCounter(0, PAGE_LENGTH);
+
+	const [locationId, setLocationId] = useState("");
 
 	const { loading, error, data } = useQuery<
 		LaunchesData,
 		LaunchSearchVariables
 	>(GET_ALL_LAUNCHES_QUERY, {
-		variables: { limit: PAGE_LENGTH, offset: pageOffset },
+		variables: {
+			limit: PAGE_LENGTH,
+			offset: pageOffset,
+			site_id: locationId,
+		},
 	});
 
 	// This isn't ideal. If the amount of entries in the db is divisible by
@@ -50,7 +57,11 @@ const LaunchList = () => {
 
 	return (
 		<div data-testid="launch-list">
-			<LaunchSearch />
+			<LaunchSearch
+				locationId={locationId}
+				setLocationId={setLocationId}
+				resetPageNumber={resetPage}
+			/>
 
 			{data &&
 				data.launches.map((launch: LaunchData) => (

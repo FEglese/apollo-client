@@ -1,10 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_LAUNCHES_QUERY = gql`
-	query GET_ALL_LAUNCHES($limit: Int, $offset: Int) {
+	query GET_ALL_LAUNCHES($limit: Int, $offset: Int, $site_id: String) {
 		launches(
 			limit: $limit
 			offset: $offset
+			find: { site_id: $site_id }
 			sort: "launch_date_utc"
 			order: "desc"
 		) {
