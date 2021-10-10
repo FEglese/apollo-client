@@ -1,6 +1,5 @@
 // Packages
-import { render, screen } from "@testing-library/react";
-import { MockedProvider, MockedResponse } from "@apollo/client/testing";
+import { render, screen, cleanup } from "@testing-library/react";
 
 // Component
 import LaunchListItem from "./LaunchListItem";
@@ -46,31 +45,35 @@ const launchProps2: LaunchData = {
 	launch_success: false,
 };
 
-describe("<LaunchListItem />", () => {
-	it("should render without crashing", () => {
+describe("<LaunchListItem /> with props 1", () => {
+	beforeEach(() => {
 		render(<LaunchListItem launch={launchProps1} />);
+	});
+
+	afterEach(cleanup);
+
+	it("should render without crashing", () => {
 		const listItem = screen.getByTestId("launch-list-item");
 		expect(listItem).toBeInTheDocument();
 	});
 
 	it("has the correct mission name", () => {
-		render(<LaunchListItem launch={launchProps1} />);
 		const launchName = screen.getByTestId("launch-list-item-name");
 		expect(launchName).toHaveTextContent("Test Mission 1");
 	});
 
 	it("has the correct rocket name formatted", () => {
-		render(<LaunchListItem launch={launchProps1} />);
 		const rocketDetails = screen.getByTestId("launch-list-item-rocket");
 		expect(rocketDetails).toHaveTextContent("Falcon 1 - v2");
 	});
 
-	it("shows that the launch failed with a cross emoji", () => {
-		render(<LaunchListItem launch={launchProps1} />);
+	it("shows that the launch failed with a tick emoji", () => {
 		const suceessItem = screen.getByTestId("launch-list-item-success");
 		expect(suceessItem).toHaveTextContent("Success: ✅");
 	});
+});
 
+describe("<LaunchListItem /> with props 2", () => {
 	it("shows that the launch failed with a cross emoji", () => {
 		render(<LaunchListItem launch={launchProps2} />);
 		const suceessItem = screen.getByTestId("launch-list-item-success");

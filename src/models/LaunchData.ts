@@ -7,10 +7,11 @@ export interface LaunchData {
 	id: string;
 	launch_date_utc: Date;
 	links: {
+		wikipedia: string;
 		flickr_images: string[];
 	};
 	details: string;
-	launch_side: {
+	launch_site: {
 		site_id: string;
 		site_name_long: string;
 	};

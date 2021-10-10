@@ -1,9 +1,9 @@
 import LaunchList from "./components/launchList/LaunchList";
-import "./style/App.scss";
+import style from "./style/App.module.scss";
 
 function App() {
 	return (
-		<div className="App">
+		<div className={style.container}>
 			<h1>🚀 SpaceX Launches 🚀</h1>
 			<LaunchList />
 		</div>

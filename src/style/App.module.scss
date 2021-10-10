@@ -1,0 +1,49 @@
+@import "./variables.scss";
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $text-primary;
+	background-color: $background-color;
+}
+
+h1,
+h2 {
+	padding: 0px 20px;
+	text-align: center;
+}
+
+p {
+	padding: 0px 20px;
+	font-size: 1.25rem;
+}
+
+.container {
+	margin: auto;
+	padding: 10px;
+	width: 700px;
+
+	@media (max-width: 720px) {
+		margin: auto;
+		padding: 10px;
+		width: 90%;
+	}
+}
+
+.pagination_button_base {
+	padding: 15px;
+	margin: 10px 10px;
+	background-color: $component-background-color;
+	border-radius: 10px;
+	color: white;
+	font-size: 30pt;
+}
+
+.pagination_button_right {
+	@extend .pagination_button_base;
+	float: right;
+}
