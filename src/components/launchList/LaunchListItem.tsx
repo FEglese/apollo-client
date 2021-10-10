@@ -27,7 +27,7 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 
 			<table>
 				<tbody>
-					<tr>
+					<tr data-testid="launch-list-item-rocket">
 						<th>Rocket:</th>
 						<td>{formattedRocket}</td>
 					</tr>
@@ -39,8 +39,8 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 						<th>Date:</th>
 						<td>{formattedDate}</td>
 					</tr>
-					<tr>
-						<th>Sucess:</th>
+					<tr data-testid="launch-list-item-success">
+						<th>Success:</th>
 						<td>{successMessage}</td>
 					</tr>
 				</tbody>

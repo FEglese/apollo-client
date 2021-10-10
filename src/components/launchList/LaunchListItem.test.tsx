@@ -17,9 +17,10 @@ const launchProps1: LaunchData = {
 	launch_date_utc: new Date(),
 	links: {
 		flickr_images: [],
+		wikipedia: "",
 	},
 	details: "",
-	launch_side: {
+	launch_site: {
 		site_id: "cap_1",
 		site_name_long: "Captain Launch Station",
 	},
@@ -36,9 +37,10 @@ const launchProps2: LaunchData = {
 	launch_date_utc: new Date(),
 	links: {
 		flickr_images: [],
+		wikipedia: "",
 	},
 	details: "",
-	launch_side: {
+	launch_site: {
 		site_id: "cap_1",
 		site_name_long: "Captain Launch Station",
 	},
@@ -64,12 +66,12 @@ describe("<LaunchListItem /> with props 1", () => {
 
 	it("has the correct rocket name formatted", () => {
 		const rocketDetails = screen.getByTestId("launch-list-item-rocket");
-		expect(rocketDetails).toHaveTextContent("Falcon 1 - v2");
+		expect(rocketDetails).toHaveTextContent("Rocket:Falcon 1 - v2");
 	});
 
 	it("shows that the launch failed with a tick emoji", () => {
 		const suceessItem = screen.getByTestId("launch-list-item-success");
-		expect(suceessItem).toHaveTextContent("Success: ✅");
+		expect(suceessItem).toHaveTextContent("Success:✅");
 	});
 });
 
@@ -77,6 +79,6 @@ describe("<LaunchListItem /> with props 2", () => {
 	it("shows that the launch failed with a cross emoji", () => {
 		render(<LaunchListItem launch={launchProps2} />);
 		const suceessItem = screen.getByTestId("launch-list-item-success");
-		expect(suceessItem).toHaveTextContent("Success: ❌");
+		expect(suceessItem).toHaveTextContent("Success:❌");
 	});
 });
