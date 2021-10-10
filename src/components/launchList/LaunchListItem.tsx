@@ -48,8 +48,9 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 
 			{imageUri && (
 				<img
+					data-testid="launch-list-item-image"
 					src={imageUri}
-					alt={`Photo of ${props.launch.rocket.rocket_name ?? "rocket"}`}></img>
+					alt={`${props.launch.rocket.rocket_name ?? "rocket"}`}></img>
 			)}
 
 			<div className={styles.clearfix}></div>
