@@ -21,8 +21,10 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 
 	return (
 		<div className={styles.list_item} data-testid="launch-list-item">
-			<a href={props.launch.links.wikipedia ?? "#"}>
-				<h2 data-testid="launch-list-item-name">{props.launch.mission_name}</h2>
+			<a
+				data-testid="launch-list-item-name"
+				href={props.launch.links.wikipedia ?? "#"}>
+				<h2>{props.launch.mission_name}</h2>
 			</a>
 
 			<table>

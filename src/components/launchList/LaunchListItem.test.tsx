@@ -77,26 +77,37 @@ describe("<LaunchListItem /> with props 1", () => {
 	});
 
 	it("does not render image if there is no url", () => {
-		render(<LaunchListItem launch={launchProps1} />);
 		const rocketImage = screen.queryByTestId("launch-list-item-image");
 		expect(rocketImage).not.toBeInTheDocument();
+	});
+
+	it("doesn't have a link to wikipedia in the title", () => {
+		const launchName = screen.queryByTestId("launch-list-item-name");
+		expect(launchName).toHaveAttribute("href", "");
 	});
 });
 
 describe("<LaunchListItem /> with props 2", () => {
+	beforeEach(() => {
+		render(<LaunchListItem launch={launchProps2} />);
+	});
+
+	afterEach(cleanup);
+
 	it("links to wikipedia in the title", () => {
-		const launchName = screen.getByTestId("launch-list-item-name");
-		expect(launchName).toHaveTextContent("Test Mission 1");
+		const launchName = screen.queryByTestId("launch-list-item-name");
+		expect(launchName).toHaveAttribute(
+			"href",
+			"https://en.wikipedia.org/wiki/SpaceX_CRS-2"
+		);
 	});
 
 	it("shows that the launch failed with a cross emoji", () => {
-		render(<LaunchListItem launch={launchProps2} />);
 		const suceessItem = screen.getByTestId("launch-list-item-success");
 		expect(suceessItem).toHaveTextContent("Success:❌");
 	});
 
 	it("renders an image with modified url becuase it exists", () => {
-		render(<LaunchListItem launch={launchProps2} />);
 		const rocketImage = screen.getByTestId("launch-list-item-image");
 		expect(rocketImage).toBeInTheDocument();
 		expect(rocketImage).toHaveAttribute(
