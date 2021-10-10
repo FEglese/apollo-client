@@ -1,9 +1,16 @@
 import { gql, useQuery } from "@apollo/client";
-import { useState } from "react";
+
+// Models
 import { LaunchesData, LaunchData } from "../../models/LaunchData";
+
+// Components
 import LaunchListItem from "./LaunchListItem";
 
+// Style
 import AppStyle from "../../style/App.module.scss";
+
+// Hooks
+import { useOffsetCounter } from "../../hooks/useOffsetCounter";
 
 interface LaunchSearchVariables {
 	limit: number;
@@ -41,7 +48,10 @@ export const GET_ALL_LAUNCHES_QUERY = gql`
 const LaunchList = () => {
 	const PAGE_LENGTH = 10;
 
-	const [pageOffset, setPageOffset] = useState(0);
+	const { pageOffset, incrementPage, decrementPage } = useOffsetCounter(
+		0,
+		PAGE_LENGTH
+	);
 
 	const { loading, error, data } = useQuery<
 		LaunchesData,
@@ -49,14 +59,6 @@ const LaunchList = () => {
 	>(GET_ALL_LAUNCHES_QUERY, {
 		variables: { limit: PAGE_LENGTH, offset: pageOffset },
 	});
-
-	function incrementPage() {
-		setPageOffset((os) => os + PAGE_LENGTH);
-	}
-
-	function decrementPage() {
-		setPageOffset((os) => os - PAGE_LENGTH);
-	}
 
 	if (loading) {
 		return <h3>Loading Data</h3>;
@@ -66,6 +68,7 @@ const LaunchList = () => {
 		return <h3>Error loading data: {error.message}</h3>;
 	}
 
+	// Would prefer the next/previous buttons in a seperate pagination component
 	return (
 		<div data-testid="launch-list">
 			{data &&
@@ -74,6 +77,7 @@ const LaunchList = () => {
 				))}
 			{pageOffset > 0 && (
 				<button
+					data-testid="launch-list-previous-page-button"
 					className={AppStyle.pagination_button_base}
 					onClick={decrementPage}>
 					{"<"}
@@ -81,6 +85,7 @@ const LaunchList = () => {
 			)}
 			{data && data.launches.length === PAGE_LENGTH && (
 				<button
+					data-testid="launch-list-next-page-button"
 					className={AppStyle.pagination_button_right}
 					onClick={incrementPage}>
 					{">"}
