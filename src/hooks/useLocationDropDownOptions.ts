@@ -44,7 +44,7 @@ export const useLocationDropdown = () => {
 	);
 
 	// Add an empty option at the top
-	locations.unshift({ key: "", val: "" });
+	locations.unshift({ key: "", val: "Select a launch location" });
 
 	return { locations };
 };

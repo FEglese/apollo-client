@@ -2,6 +2,7 @@ import { useLocationDropdown } from "../../hooks/useLocationDropDownOptions";
 import Style from "../../style/LaunchSearch.module.scss";
 
 interface LaunchSearchParams {
+	searchDisabled: boolean;
 	locationId: string;
 	setLocationId: (id: string) => void;
 	resetPageNumber: () => void;
@@ -26,14 +27,18 @@ const LaunchSearch = (params: LaunchSearchParams) => {
 
 	return (
 		<div className={Style.launch_search}>
-			<label htmlFor="location">Location: </label>
-			<select
-				value={params.locationId}
-				onChange={handleLocationChange}
-				name="location"
-				id="location">
-				{locationOptions}
-			</select>
+			<h3>Search launches</h3>
+			<div className={Style.row}>
+				<label htmlFor="location">Location: </label>
+				<select
+					disabled={params.searchDisabled}
+					value={params.locationId}
+					onChange={handleLocationChange}
+					name="location"
+					id="location">
+					{locationOptions}
+				</select>
+			</div>
 		</div>
 	);
 };

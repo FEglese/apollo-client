@@ -10,4 +10,16 @@
 	box-sizing: border-box;
 
 	background-color: $component-background-color;
+
+	.row {
+		padding-bottom: 10px;
+	}
+
+	label {
+		padding-right: 20px;
+	}
+
+	select {
+		width: 300px;
+	}
 }

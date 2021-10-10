@@ -48,7 +48,17 @@ const LaunchList = () => {
 		(data && data.launches.length === PAGE_LENGTH) ?? false;
 
 	if (loading) {
-		return <h3>Loading Data</h3>;
+		return (
+			<>
+				<LaunchSearch
+					locationId={locationId}
+					setLocationId={setLocationId}
+					resetPageNumber={resetPage}
+					searchDisabled={true}
+				/>
+				<h3>Loading Data</h3>
+			</>
+		);
 	}
 
 	if (error) {
@@ -58,6 +68,7 @@ const LaunchList = () => {
 	return (
 		<div data-testid="launch-list">
 			<LaunchSearch
+				searchDisabled={false}
 				locationId={locationId}
 				setLocationId={setLocationId}
 				resetPageNumber={resetPage}
