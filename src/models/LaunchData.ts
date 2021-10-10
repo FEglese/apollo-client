@@ -10,7 +10,6 @@ export interface LaunchData {
 		wikipedia: string;
 		flickr_images: string[];
 	};
-	details: string;
 	launch_site: {
 		site_id: string;
 		site_name_long: string;

@@ -10,7 +10,7 @@ interface LaunchSearchVariables {
 	offset: number;
 }
 
-const GET_ALL_LAUNCHES = gql`
+export const GET_ALL_LAUNCHES_QUERY = gql`
 	query GET_ALL_LAUNCHES($limit: Int, $offset: Int) {
 		launches(
 			limit: $limit
@@ -29,7 +29,6 @@ const GET_ALL_LAUNCHES = gql`
 				flickr_images
 				wikipedia
 			}
-			details
 			launch_site {
 				site_name_long
 				site_id
@@ -47,7 +46,7 @@ const LaunchList = () => {
 	const { loading, error, data } = useQuery<
 		LaunchesData,
 		LaunchSearchVariables
-	>(GET_ALL_LAUNCHES, {
+	>(GET_ALL_LAUNCHES_QUERY, {
 		variables: { limit: PAGE_LENGTH, offset: pageOffset },
 	});
 
@@ -68,7 +67,7 @@ const LaunchList = () => {
 	}
 
 	return (
-		<div>
+		<div data-testid="launch-list">
 			{data &&
 				data.launches.map((launch: LaunchData) => (
 					<LaunchListItem key={launch.id} launch={launch} />

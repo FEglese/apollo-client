@@ -19,7 +19,6 @@ const launchProps1: LaunchData = {
 		flickr_images: [],
 		wikipedia: "",
 	},
-	details: "",
 	launch_site: {
 		site_id: "cap_1",
 		site_name_long: "Captain Launch Station",
@@ -41,7 +40,6 @@ const launchProps2: LaunchData = {
 		],
 		wikipedia: "https://en.wikipedia.org/wiki/SpaceX_CRS-2",
 	},
-	details: "",
 	launch_site: {
 		site_id: "cap_1",
 		site_name_long: "Captain Launch Station",
