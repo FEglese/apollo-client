@@ -8,6 +8,7 @@ import { GET_ALL_LAUNCHES_QUERY } from "./LaunchListQueries";
 
 // Components
 import LaunchListItem from "./LaunchListItem";
+import LaunchSearch from "./LaunchSearch";
 import PaginationButtons from "../paginationButtons/PaginationButtons";
 
 // Hooks
@@ -49,6 +50,8 @@ const LaunchList = () => {
 
 	return (
 		<div data-testid="launch-list">
+			<LaunchSearch />
+
 			{data &&
 				data.launches.map((launch: LaunchData) => (
 					<LaunchListItem key={launch.id} launch={launch} />

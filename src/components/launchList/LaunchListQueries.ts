@@ -28,3 +28,14 @@ export const GET_ALL_LAUNCHES_QUERY = gql`
 		}
 	}
 `;
+
+export const GET_ALL_LOCATIONS_QUERY = gql`
+	{
+		launches {
+			launch_site {
+				site_name_long
+				site_id
+			}
+		}
+	}
+`;
