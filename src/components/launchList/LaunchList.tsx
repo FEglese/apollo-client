@@ -1,48 +1,22 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
 // Models
 import { LaunchesData, LaunchData } from "../../models/LaunchData";
 
+// Query strings
+import { GET_ALL_LAUNCHES_QUERY } from "./LaunchListQueries";
+
 // Components
 import LaunchListItem from "./LaunchListItem";
+import PaginationButtons from "../paginationButtons/PaginationButtons";
 
 // Hooks
 import { useOffsetCounter } from "../../hooks/useOffsetCounter";
-import { PaginationButtons } from "../paginationButtons/PaginationButtons";
 
 interface LaunchSearchVariables {
 	limit: number;
 	offset: number;
 }
-
-export const GET_ALL_LAUNCHES_QUERY = gql`
-	query GET_ALL_LAUNCHES($limit: Int, $offset: Int) {
-		launches(
-			limit: $limit
-			offset: $offset
-			sort: "launch_date_utc"
-			order: "desc"
-		) {
-			mission_name
-			rocket {
-				rocket_name
-				rocket_type
-			}
-			id
-			details
-			launch_date_utc
-			links {
-				flickr_images
-				wikipedia
-			}
-			launch_site {
-				site_name_long
-				site_id
-			}
-			launch_success
-		}
-	}
-`;
 
 const LaunchList = () => {
 	const PAGE_LENGTH = 10;

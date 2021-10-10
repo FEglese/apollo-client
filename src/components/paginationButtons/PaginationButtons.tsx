@@ -7,7 +7,7 @@ export interface PaginationButtonsParams {
 	increment: () => void;
 }
 
-export const PaginationButtons = (params: PaginationButtonsParams) => {
+const PaginationButtons = (params: PaginationButtonsParams) => {
 	return (
 		<>
 			{params.pageOffset > 0 && (
@@ -29,3 +29,5 @@ export const PaginationButtons = (params: PaginationButtonsParams) => {
 		</>
 	);
 };
+
+export default PaginationButtons;
