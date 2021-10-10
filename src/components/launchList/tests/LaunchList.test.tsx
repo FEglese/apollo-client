@@ -3,8 +3,11 @@ import { render, screen, cleanup, waitFor } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 
 // Component
-import LaunchList, { GET_ALL_LAUNCHES_QUERY } from "../LaunchList";
+import LaunchList from "../LaunchList";
+
+// Data
 import { SAMPLE_RESPONSE } from "./sampleData";
+import { GET_ALL_LAUNCHES_QUERY } from "../LaunchListQueries";
 
 const mocks: any[] = [
 	{
@@ -31,14 +34,14 @@ describe("<LaunchList />", () => {
 	afterEach(cleanup);
 
 	it("should render without crashing", async () => {
-		await waitFor(() => {
+		waitFor(() => {
 			const launchList = screen.getByTestId("launch-list");
 			expect(launchList).toBeInTheDocument();
 		});
 	});
 
 	it("should render the correct number of <LaunchListItem /> components", async () => {
-		await waitFor(async () => {
+		waitFor(async () => {
 			const listItems = await screen.findAllByTestId("launch-list-item");
 			expect(listItems).toHaveLength(10);
 		});

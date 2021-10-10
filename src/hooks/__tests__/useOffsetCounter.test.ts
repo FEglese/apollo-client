@@ -1,4 +1,4 @@
-import { useOffsetCounter } from "./useOffsetCounter";
+import { useOffsetCounter } from "../useOffsetCounter";
 import { act, renderHook } from "@testing-library/react-hooks";
 import { waitFor } from "@testing-library/dom";
 
