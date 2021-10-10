@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const useOffsetCounter = (initialVal: number, pageLength: number) => {
 	const [pageOffset, setPageOffset] = useState(initialVal);
