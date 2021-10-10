@@ -12,7 +12,12 @@ interface LaunchSearchVariables {
 
 const GET_ALL_LAUNCHES = gql`
 	query GET_ALL_LAUNCHES($limit: Int, $offset: Int) {
-		launches(limit: $limit, offset: $offset) {
+		launches(
+			limit: $limit
+			offset: $offset
+			sort: "launch_date_utc"
+			order: "desc"
+		) {
 			mission_name
 			rocket {
 				rocket_name
