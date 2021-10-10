@@ -15,7 +15,7 @@ These deployment methods assumes that the user has some familiarity with the com
 To clone this repository, in the terminal navigate to your target directory, then run:
 `git clone https://github.com/FredrikEglese/apollo-client.git`
 
-Navigate into the new directory `apollo-client` and run `npm i` to install the necesary npm packages.
+Navigate into the new directory `apollo-client` and run `npm i` to install the necesary npm packages. There will likely be quite a few dependency warnings, but these are mostly dependencies of packages brought in with `creat-react-app` and are out of my hands.
 
 ### Dev mode deploy
 
