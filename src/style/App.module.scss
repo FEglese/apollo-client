@@ -34,17 +34,3 @@ p {
 		width: 90%;
 	}
 }
-
-.pagination_button_base {
-	padding: 15px;
-	margin: 10px 10px;
-	background-color: $component-background-color;
-	border-radius: 10px;
-	color: white;
-	font-size: 30pt;
-}
-
-.pagination_button_right {
-	@extend .pagination_button_base;
-	float: right;
-}

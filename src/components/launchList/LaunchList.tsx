@@ -6,11 +6,9 @@ import { LaunchesData, LaunchData } from "../../models/LaunchData";
 // Components
 import LaunchListItem from "./LaunchListItem";
 
-// Style
-import AppStyle from "../../style/App.module.scss";
-
 // Hooks
 import { useOffsetCounter } from "../../hooks/useOffsetCounter";
+import { PaginationButtons } from "../paginationButtons/PaginationButtons";
 
 interface LaunchSearchVariables {
 	limit: number;
@@ -61,6 +59,12 @@ const LaunchList = () => {
 		variables: { limit: PAGE_LENGTH, offset: pageOffset },
 	});
 
+	// This isn't ideal. If the amount of entries in the db is divisible by
+	// the page length, then the final page would have a next button
+	// despite there not being any data on the next page
+	const displayPaginationNextButton =
+		(data && data.launches.length === PAGE_LENGTH) ?? false;
+
 	if (loading) {
 		return <h3>Loading Data</h3>;
 	}
@@ -69,29 +73,19 @@ const LaunchList = () => {
 		return <h3>Error loading data: {error.message}</h3>;
 	}
 
-	// Would prefer the next/previous buttons in a seperate pagination component
 	return (
 		<div data-testid="launch-list">
 			{data &&
 				data.launches.map((launch: LaunchData) => (
 					<LaunchListItem key={launch.id} launch={launch} />
 				))}
-			{pageOffset > 0 && (
-				<button
-					data-testid="launch-list-previous-page-button"
-					className={AppStyle.pagination_button_base}
-					onClick={decrementPage}>
-					{"<"}
-				</button>
-			)}
-			{data && data.launches.length === PAGE_LENGTH && (
-				<button
-					data-testid="launch-list-next-page-button"
-					className={AppStyle.pagination_button_right}
-					onClick={incrementPage}>
-					{">"}
-				</button>
-			)}
+
+			<PaginationButtons
+				pageOffset={pageOffset}
+				displayNextButton={displayPaginationNextButton}
+				increment={incrementPage}
+				decrement={decrementPage}
+			/>
 		</div>
 	);
 };
