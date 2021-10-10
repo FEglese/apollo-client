@@ -41,6 +41,15 @@
 
 			td {
 				padding: 5px;
+
+				button {
+					padding: 10px 15px;
+					margin: 10px 10px;
+					background-color: $component-background-color;
+					border-radius: 10px;
+					color: white;
+					font-size: 1rem;
+				}
 			}
 		}
 	}

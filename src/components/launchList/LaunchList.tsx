@@ -26,7 +26,7 @@ const LaunchList = () => {
 	const { pageOffset, incrementPage, decrementPage, resetPage } =
 		useOffsetCounter(0, PAGE_LENGTH);
 
-	const [locationId, setLocationId] = useState("");
+	const [locationId, setLocationId] = useState<string>("");
 
 	const { loading, error, data } = useQuery<
 		LaunchesData,

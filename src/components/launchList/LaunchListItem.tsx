@@ -11,6 +11,16 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 	const formattedDate = new Date(props.launch.launch_date_utc).toLocaleString();
 	const formattedRocket = `${props.launch.rocket.rocket_name} - ${props.launch.rocket.rocket_type}`;
 
+	const [fullDescription, setFullDescription] = useState<boolean>(false);
+
+	const toggleDescription = () => {
+		setFullDescription((currentVal) => !currentVal);
+	};
+
+	const formattedDescription = fullDescription
+		? props.launch?.details ?? ""
+		: props.launch.details?.slice(0, 100) + "...";
+
 	// Flickr images have a quality parameter at the end
 	// _o => Original => Unnecesary for this page where the icons are small
 	// _c => Medium/ 800px smallest side
@@ -50,7 +60,14 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 					{props.launch.details && (
 						<tr data-testid="launch-list-item-description">
 							<th>Description:</th>
-							<td>{props.launch.details}</td>
+							<td aria-label={props.launch.details}>
+								{formattedDescription}
+								<div>
+									<button onClick={toggleDescription}>
+										{`Show ${fullDescription ? "less" : "more"} info`}
+									</button>
+								</div>
+							</td>
 						</tr>
 					)}
 				</tbody>

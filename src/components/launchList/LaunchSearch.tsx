@@ -1,5 +1,4 @@
 import { useLocationDropdown } from "../../hooks/useLocationDropDownOptions";
-import { LaunchData } from "../../models/LaunchData";
 import Style from "../../style/LaunchSearch.module.scss";
 
 interface LaunchSearchProps {
@@ -28,7 +27,7 @@ const LaunchSearch = (props: LaunchSearchProps) => {
 
 	return (
 		<div className={Style.launch_search}>
-			<h3>Search launches</h3>
+			<h2>Search launches</h2>
 			<div className={Style.row}>
 				<label htmlFor="location">Location: </label>
 				<select

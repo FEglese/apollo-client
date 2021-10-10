@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useOffsetCounter = (initialVal: number, pageLength: number) => {
-	const [pageOffset, setPageOffset] = useState(initialVal);
+	const [pageOffset, setPageOffset] = useState<number>(initialVal);
 
 	function incrementPage() {
 		setPageOffset((os) => os + pageLength);
