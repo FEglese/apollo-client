@@ -9,6 +9,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "111",
+				description: "",
 				launch_date_utc: "2020-12-14T17:30:00.000Z",
 				links: {
 					flickr_images: [],
@@ -32,6 +33,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "110",
+				description: "",
 				launch_date_utc: "2020-12-06T16:17:00.000Z",
 				links: {
 					flickr_images: [],
@@ -54,6 +56,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "108",
+				description: "",
 				launch_date_utc: "2020-11-21T17:17:00.000Z",
 				links: {
 					flickr_images: [
@@ -81,6 +84,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "107",
+				description: "",
 				launch_date_utc: "2020-11-16T00:27:00.000Z",
 				links: {
 					flickr_images: [
@@ -107,6 +111,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "106",
+				description: "",
 				launch_date_utc: "2020-11-05T23:24:00.000Z",
 				links: {
 					flickr_images: [],
@@ -130,6 +135,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "109",
+				description: "",
 				launch_date_utc: "2020-10-24T15:31:00.000Z",
 				links: {
 					flickr_images: [],
@@ -153,6 +159,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "105",
+				description: "",
 				launch_date_utc: "2020-10-24T15:31:00.000Z",
 				links: {
 					flickr_images: [],
@@ -176,6 +183,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "104",
+				description: "",
 				launch_date_utc: "2020-10-18T12:25:00.000Z",
 				links: {
 					flickr_images: [
@@ -201,6 +209,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "103",
+				description: "",
 				launch_date_utc: "2020-10-06T11:29:00.000Z",
 				links: {
 					flickr_images: [
@@ -227,6 +236,7 @@ export const SAMPLE_RESPONSE = {
 					__typename: "LaunchRocket",
 				},
 				id: "102",
+				description: "",
 				launch_date_utc: "2020-09-03T12:46:00.000Z",
 				links: {
 					flickr_images: [],

@@ -14,6 +14,7 @@ const launchProps1: LaunchData = {
 		rocket_name: "Falcon 1",
 		rocket_type: "v2",
 	},
+	description: "",
 	launch_date_utc: new Date(),
 	links: {
 		flickr_images: [],
@@ -33,6 +34,7 @@ const launchProps2: LaunchData = {
 		rocket_name: "Falcon 3",
 		rocket_type: "v7",
 	},
+	description: "",
 	launch_date_utc: new Date(),
 	links: {
 		flickr_images: [

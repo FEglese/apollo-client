@@ -5,6 +5,7 @@ export interface LaunchData {
 		rocket_type: string;
 	};
 	id: string;
+	description: string;
 	launch_date_utc: Date;
 	links: {
 		wikipedia: string;
