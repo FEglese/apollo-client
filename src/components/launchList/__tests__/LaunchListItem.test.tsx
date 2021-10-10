@@ -2,10 +2,10 @@
 import { render, screen, cleanup } from "@testing-library/react";
 
 // Component
-import LaunchListItem from "./LaunchListItem";
+import LaunchListItem from "../LaunchListItem";
 
 // Models & Interfaces
-import { LaunchData } from "../../models/LaunchData";
+import { LaunchData } from "../../../models/LaunchData";
 
 const launchProps1: LaunchData = {
 	id: "123",
