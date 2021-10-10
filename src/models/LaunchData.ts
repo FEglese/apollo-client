@@ -21,3 +21,9 @@ export interface LaunchData {
 export interface LaunchesData {
 	launches: LaunchData[];
 }
+
+export interface LaunchSearchVariables {
+	limit: number;
+	offset: number;
+	site_id: string;
+}

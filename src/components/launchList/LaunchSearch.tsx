@@ -1,22 +1,23 @@
 import { useLocationDropdown } from "../../hooks/useLocationDropDownOptions";
+import { LaunchData } from "../../models/LaunchData";
 import Style from "../../style/LaunchSearch.module.scss";
 
-interface LaunchSearchParams {
+interface LaunchSearchProps {
 	searchDisabled: boolean;
 	locationId: string;
 	setLocationId: (id: string) => void;
 	resetPageNumber: () => void;
 }
 
-const LaunchSearch = (params: LaunchSearchParams) => {
+const LaunchSearch = (props: LaunchSearchProps) => {
 	const { locations } = useLocationDropdown();
 
 	const handleLocationChange = (e: any) => {
 		// Reset the page to 0
 		// Otherwise can be on page 6 of a popular location, search for
 		// a less popular one and have to go back to page 1 before seeing any content
-		params.resetPageNumber();
-		params.setLocationId(e.target.value);
+		props.resetPageNumber();
+		props.setLocationId(e.target.value);
 	};
 
 	const locationOptions = locations.map((l) => (
@@ -31,8 +32,8 @@ const LaunchSearch = (params: LaunchSearchParams) => {
 			<div className={Style.row}>
 				<label htmlFor="location">Location: </label>
 				<select
-					disabled={params.searchDisabled}
-					value={params.locationId}
+					disabled={props.searchDisabled}
+					value={props.locationId}
 					onChange={handleLocationChange}
 					name="location"
 					id="location">

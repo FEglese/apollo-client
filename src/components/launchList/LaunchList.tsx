@@ -2,7 +2,11 @@ import { useQuery } from "@apollo/client";
 import { useState } from "react";
 
 // Models
-import { LaunchesData, LaunchData } from "../../models/LaunchData";
+import {
+	LaunchesData,
+	LaunchData,
+	LaunchSearchVariables,
+} from "../../models/LaunchData";
 
 // Query strings
 import { GET_ALL_LAUNCHES_QUERY } from "./LaunchListQueries";
@@ -14,12 +18,6 @@ import PaginationButtons from "../paginationButtons/PaginationButtons";
 
 // Hooks
 import { useOffsetCounter } from "../../hooks/useOffsetCounter";
-
-interface LaunchSearchVariables {
-	limit: number;
-	offset: number;
-	site_id: string;
-}
 
 const LaunchList = () => {
 	const PAGE_LENGTH = 10;

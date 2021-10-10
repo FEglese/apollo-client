@@ -1,28 +1,28 @@
 import Style from "../../style/PaginationButtons.module.scss";
 
-export interface PaginationButtonsParams {
+export interface PaginationButtonsProps {
 	pageOffset: number;
 	displayNextButton: boolean;
 	decrement: () => void;
 	increment: () => void;
 }
 
-const PaginationButtons = (params: PaginationButtonsParams) => {
+const PaginationButtons = (props: PaginationButtonsProps) => {
 	return (
 		<>
-			{params.pageOffset > 0 && (
+			{props.pageOffset > 0 && (
 				<button
 					data-testid="launch-list-previous-page-button"
 					className={Style.pagination_button_base}
-					onClick={params.decrement}>
+					onClick={props.decrement}>
 					{"<"}
 				</button>
 			)}
-			{params.displayNextButton && (
+			{props.displayNextButton && (
 				<button
 					data-testid="launch-list-next-page-button"
 					className={Style.pagination_button_right}
-					onClick={params.increment}>
+					onClick={props.increment}>
 					{">"}
 				</button>
 			)}

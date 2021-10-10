@@ -58,3 +58,11 @@
 		clear: both;
 	}
 }
+
+.list_item_no_img {
+	@extend .list_item;
+
+	table {
+		width: 100%;
+	}
+}

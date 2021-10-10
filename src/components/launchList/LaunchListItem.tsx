@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { LaunchData } from "../../models/LaunchData";
-
 import styles from "../../style/LaunchListItem.module.scss";
 
-export interface LaunchListItemProps {
+interface LaunchListItemProps {
 	launch: LaunchData;
 }
 
@@ -20,7 +20,9 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 	);
 
 	return (
-		<div className={styles.list_item} data-testid="launch-list-item">
+		<div
+			className={imageUri ? styles.list_item : styles.list_item_no_img}
+			data-testid="launch-list-item">
 			<a
 				data-testid="launch-list-item-name"
 				href={props.launch.links.wikipedia ?? "#"}>
@@ -45,6 +47,12 @@ const LaunchListItem = (props: LaunchListItemProps) => {
 						<th>Success:</th>
 						<td>{successMessage}</td>
 					</tr>
+					{props.launch.details && (
+						<tr data-testid="launch-list-item-description">
+							<th>Description:</th>
+							<td>{props.launch.details}</td>
+						</tr>
+					)}
 				</tbody>
 			</table>
 
