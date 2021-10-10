@@ -31,7 +31,7 @@ export const GET_ALL_LAUNCHES_QUERY = gql`
 				rocket_type
 			}
 			id
-			description
+			details
 			launch_date_utc
 			links {
 				flickr_images
