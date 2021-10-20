@@ -15,7 +15,7 @@ const PaginationButtons = (props: PaginationButtonsProps) => {
 					data-testid="launch-list-previous-page-button"
 					className={Style.pagination_button_base}
 					onClick={props.decrement}>
-					{"<"}
+					Previous
 				</button>
 			)}
 			{props.displayNextButton && (
@@ -23,7 +23,7 @@ const PaginationButtons = (props: PaginationButtonsProps) => {
 					data-testid="launch-list-next-page-button"
 					className={Style.pagination_button_right}
 					onClick={props.increment}>
-					{">"}
+					Next
 				</button>
 			)}
 		</>
