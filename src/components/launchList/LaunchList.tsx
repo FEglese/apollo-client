@@ -45,44 +45,39 @@ const LaunchList = () => {
 	const displayPaginationNextButton =
 		(data && data.launches.length === PAGE_LENGTH) ?? false;
 
+	let content;
+
 	if (loading) {
-		return (
+		content = <h3>Loading Data</h3>;
+	} else if (error) {
+		content = <h3>Error loading data: {error.message}</h3>;
+	} else {
+		content = (
 			<>
-				<LaunchSearch
-					locationId={locationId}
-					setLocationId={setLocationId}
-					resetPageNumber={resetPage}
-					searchDisabled={true}
+				{data &&
+					data.launches.map((launch: LaunchData) => (
+						<LaunchListItem key={launch.id} launch={launch} />
+					))}
+
+				<PaginationButtons
+					pageOffset={pageOffset}
+					displayNextButton={displayPaginationNextButton}
+					increment={incrementPage}
+					decrement={decrementPage}
 				/>
-				<h3>Loading Data</h3>
 			</>
 		);
-	}
-
-	if (error) {
-		return <h3>Error loading data: {error.message}</h3>;
 	}
 
 	return (
 		<div data-testid="launch-list">
 			<LaunchSearch
-				searchDisabled={false}
+				searchDisabled={loading}
 				locationId={locationId}
 				setLocationId={setLocationId}
 				resetPageNumber={resetPage}
 			/>
-
-			{data &&
-				data.launches.map((launch: LaunchData) => (
-					<LaunchListItem key={launch.id} launch={launch} />
-				))}
-
-			<PaginationButtons
-				pageOffset={pageOffset}
-				displayNextButton={displayPaginationNextButton}
-				increment={incrementPage}
-				decrement={decrementPage}
-			/>
+			{content}
 		</div>
 	);
 };
