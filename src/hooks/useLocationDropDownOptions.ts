@@ -21,7 +21,7 @@ export const useLocationDropdown = () => {
 	 * Checking if a duplicate key/val pair already exists in an array
 	 * Becuase two objects with the same values are not the same instead I
 	 * convert each object into a string using :-: as a seperator then back again
-	 * Complexity: O(n) - Only runs on hook load
+	 * Complexity: O(n^2) - Fortunately only runs on hook load
 	 */
 
 	let locationStrings: string[] = [];
